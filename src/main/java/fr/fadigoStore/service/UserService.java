@@ -1,6 +1,6 @@
 package fr.fadigoStore.service;
 
-import fr.fadigoStore.entities.EmailTemplateName;
+
 import fr.fadigoStore.entities.Role;
 import fr.fadigoStore.entities.Token;
 import fr.fadigoStore.entities.User;
@@ -32,7 +32,7 @@ public class UserService {
 
     public void register(User user) throws MessagingException {
 
-        // This is the default role
+
         if(roleRepository.findByName("USER").isEmpty()) {
             Role role_user = Role.builder()
                     .name("USER")
@@ -40,6 +40,7 @@ public class UserService {
             roleRepository.save(role_user);
         }
 
+        // This is the default role
         Role userRole = roleRepository.findByName("USER")
                 .orElseThrow(() -> new IllegalStateException("This role is not initialized"));
 
@@ -71,14 +72,6 @@ public class UserService {
                         +"Lien d'activation : "+activationUrl
         );
 
-//        emailService.sendMail(
-//                user.getEmail(),
-//                user.getFirstname(),
-//                EmailTemplateName.ACTIVATE_ACCOUNT,
-//                activationUrl,
-//                newToken,
-//                "Activate account"
-//        );
     }
 
     // Method to generate and save Token
