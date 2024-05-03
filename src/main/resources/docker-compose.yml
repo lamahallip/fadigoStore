@@ -1,0 +1,24 @@
+services:
+
+  db:
+    image: mariadb:11.3.2-jammy
+    container_name: mariadb-11.3.2-jammy
+    environment:
+      MYSQL_ROOT_PASSWORD: fadStore@!
+      MYSQL_DATABASE: fadigo_store_db
+      MYSQL_USER: florent
+      MYSQL_PASSWORD: fadStore@!
+    ports:
+      - "3106:3306"
+
+  smtp4dev:
+      container_name: smtp4dev-v3
+      image: rnwood/smtp4dev:v3
+      restart: always
+      ports:
+        # The web interface should be accessible on
+        - '5000:80'
+        # The port the SMTP server should be accessible on
+        - '25:25'
+
+
