@@ -1,8 +1,6 @@
 package fr.fadigoStore.service;
 
-import fr.fadigoStore.entities.Image;
 import fr.fadigoStore.entities.Product;
-import fr.fadigoStore.repositories.ImageRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

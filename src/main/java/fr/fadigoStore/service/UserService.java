@@ -4,17 +4,22 @@ package fr.fadigoStore.service;
 import fr.fadigoStore.entities.Role;
 import fr.fadigoStore.entities.Token;
 import fr.fadigoStore.entities.User;
+
 import fr.fadigoStore.repositories.RoleRepository;
 import fr.fadigoStore.repositories.TokenRepository;
 import fr.fadigoStore.repositories.UserRepository;
+
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
+
 import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -31,7 +36,6 @@ public class UserService {
     private final String confirmationUrl = "";
 
     public void register(User user) throws MessagingException {
-
 
         if(roleRepository.findByName("USER").isEmpty()) {
             Role role_user = Role.builder()
@@ -69,7 +73,7 @@ public class UserService {
                 "Bonjour "+user.getFirstname()+
                         ", Voici votre code : "+newToken
                         +" Veuillez activer votre compte. Vous avez un délai de 15 minutes | "
-                        +"Lien d'activation : "+activationUrl
+                        +"Lien d'activation : " + activationUrl
         );
 
     }
@@ -101,4 +105,5 @@ public class UserService {
 
         return codeBuilder.toString();
     }
+
 }

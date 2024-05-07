@@ -109,4 +109,8 @@ public class User implements UserDetails, Principal {
     public boolean isEnabled() {
         return this.isEnable;
     }
+
+    public String getFullname() {
+        return this.firstname+this.lastname;
+    }
 }
