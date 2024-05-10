@@ -1,6 +1,6 @@
 package fr.fadigoStore.repositories;
 
-import fr.fadigoStore.entities.Role;
+import fr.fadigoStore.user.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

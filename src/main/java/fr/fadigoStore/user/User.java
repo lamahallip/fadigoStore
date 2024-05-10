@@ -1,4 +1,4 @@
-package fr.fadigoStore.entities;
+package fr.fadigoStore.user;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -111,6 +111,6 @@ public class User implements UserDetails, Principal {
     }
 
     public String getFullname() {
-        return this.firstname+this.lastname;
+        return this.firstname+" "+this.lastname;
     }
 }

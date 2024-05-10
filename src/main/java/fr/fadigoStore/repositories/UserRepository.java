@@ -1,6 +1,6 @@
 package fr.fadigoStore.repositories;
 
-import fr.fadigoStore.entities.User;
+import fr.fadigoStore.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package fr.fadigoStore.entities;
+package fr.fadigoStore.user;
 
 import jakarta.persistence.*;
 import lombok.*;

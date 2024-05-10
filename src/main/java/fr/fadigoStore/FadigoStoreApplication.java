@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-@SpringBootApplication()
+@SpringBootApplication
 @EnableJpaAuditing
 @EnableAsync
 public class FadigoStoreApplication {
@@ -14,5 +14,4 @@ public class FadigoStoreApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FadigoStoreApplication.class, args);
 	}
-
 }
