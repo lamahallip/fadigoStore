@@ -66,7 +66,7 @@ public class UserService {
 
     private final String confirmationUrl = "";
 
-    public AuthenticationResponse register(RegistrationRequest request) throws MessagingException {
+    public User register(RegistrationRequest request) throws MessagingException {
 
         if(roleRepository.findByName("USER").isEmpty()) {
             Role role_user = Role.builder()
@@ -89,19 +89,13 @@ public class UserService {
                 .isEnable(false)
                 .build();
 
-        this.userRepository.save(newUser);
-
+        User usersaved = userRepository.save(newUser);
         log.info("User created !!!");
         sendValidationEmail(newUser);
         log.info("User receive message !!!");
 
-        UserDetails userDetails = userRepository.findByEmail(newUser.getEmail())
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        String token = jwtService.generateToken(userDetails);
+        return usersaved;
 
-        return AuthenticationResponse.builder()
-                .token(token)
-                .build();
     }
 
     // Method to send notification for activate account

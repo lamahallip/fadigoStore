@@ -1,5 +1,6 @@
 package fr.fadigoStore.auth;
 
+import fr.fadigoStore.user.User;
 import fr.fadigoStore.user.UserService;
 import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
@@ -20,10 +21,10 @@ public class AuthenticationController {
     private UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(
+    public ResponseEntity<User> register(
             @RequestBody @Valid RegistrationRequest request
     ) throws MessagingException {
-        return new ResponseEntity<AuthenticationResponse>(userService.register(request), HttpStatus.CREATED);
+        return new ResponseEntity<User>(userService.register(request), HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
